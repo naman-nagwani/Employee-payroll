@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <div class="parent-container">
+        <div class="box-container">
+            <div class="content-container">
+                <div class="header">
+                    Employee Payroll Form
+                </div>
+                <form class="form" (ngSubmit)="onSubmit()" id="form" >
+                    <div class="form-item">
+                        <div class="form-label">
+                            Name
+                        </div>
+                        <input class="input" type="text" id="name" name="name" [(ngModel)]="employee.name"
+                            placeholder="Your Name..." required>
+                    </div>
+
+                    <div class="form-item" id="profile-image-selector">
+                        <div class="form-label">
+                            Profile image
+                        </div>
+                        <div class="multiple-choices">
+                            <div class="profile-choice-item">
+                                <input type="radio" name="profile-choice" value="Ellipse-1" [(ngModel)]="employee.profilePic" />
+                                <img src="./assets/profile-images/Ellipse -1.png">
+                            </div>
+                            <div class="profile-choice-item">
+                                <input type="radio" name="profile-choice" value="Ellipse-2" [(ngModel)]="employee.profilePic"/>
+                                <img src="./assets/profile-images/Ellipse -2.png">
+                            </div>
+                            <div class="profile-choice-item">
+                                <input type="radio" name="profile-choice" value="Ellipse-3" [(ngModel)]="employee.profilePic"/>
+                                <img src="./assets/profile-images/Ellipse -3.png">
+                            </div>
+                            <div class="profile-choice-item">
+                                <input type="radio" name="profile-choice" value="Ellipse-4" [(ngModel)]="employee.profilePic"/>
+                                <img src="./assets/profile-images/Ellipse -4.png">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-item" id="gender-selector">
+                        <div class="form-label">
+                            Gender
+                        </div>
+                        <div class="gender-choices">
+                            <input type="radio" name="gender" value="male" [(ngModel)]="employee.gender">
+                            <label>Male</label>
+                            <input type="radio" name="gender" value="female" [(ngModel)]="employee.gender">
+                            <label>Female</label>
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label class="form-label" for="department">Department</label>
+                        <div *ngFor="let departName of depart2,let i = index ">
+                            <input type="checkbox" name="department" id="department" [value]="this.employee.departments[i]" (change)="checkBoxChange(departName)" (ngModel)="departName" 
+                    [ngModelOptions]="{standalone: true}" ngDefaultControl> {{departName}}
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-label">
+                            Salary
+                        </div>
+                        <input class="input" type="range"  name="salary" id="salary" min="10000"
+                  max="100000" step="100"   [(ngModel)]="employee.salary"  value="50000" required>
+                  <output class="salary-output" for="salary" >{{this.employee.salary}}</output >
+                    </div>
+
+                    <div class="form-item" id="date-selector">
+                        <div class="form-label">
+                            Start Date
+                        </div>
+                        <input type="date" class="startDate" id="StartDate" name="date" [(ngModel)]="employee.startDate" required>
+                    </div>
+
+                    <div class="form-item">
+                        <div class="form-label label-notes">
+                            Notes
+                        </div>
+                        <textarea id="notes" class="input" name="notes"  [(ngModel)]="employee.note" placeholder="" style="height:100px"></textarea>
+                    </div>
+
+                </form>
+
+                <div class="button-container">
+                    <button onclick='clearForm()'>Cancel</button>
+                    <div class="form-button-right">
+                        <button type="submit" form="form">Submit</button>
+                        <button type="reset" form="form">Reset</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

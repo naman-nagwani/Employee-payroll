@@ -1,0 +1,109 @@
+body {
+    margin: 0%;
+}
+
+.parent-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-container {
+    width: 60vw;
+    height: 90vh;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgb(165, 165, 165);
+}
+
+.content-container {
+    max-height: 80vh;
+    padding: 5vh 10vw;
+}
+
+.header {
+    font-family: sans-serif;
+    font-size: 2em;
+    color: rgb(59, 59, 59);
+}
+
+error-label {
+    color: red;
+    font-style: italic;
+    max-width: 17vw;
+}
+
+.form {
+    margin-top: 5vh;
+}
+
+.form-item {
+    display: flex;
+    margin-bottom: 4vh;
+}
+
+.form-item select {
+    width: 7vw;
+    height: 4vh;
+    border-radius: 3px;
+    border: 1px solid rgb(163, 163, 163);
+}
+
+.form-label {
+    min-width: 10vw;
+    display: flex;
+    align-items: center;
+}
+
+.input-name {
+    width: 30vw;
+    height: 1.7em;
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 3px;
+}
+
+.multiple-choices {
+    width: 30vw;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.profile-choices img {
+    height: 30px;
+    width: 30px;
+}
+
+.profile-choice-item {
+    display: flex;
+    align-items: center;
+}
+
+.gender-choices label {
+    margin-right: 3vw;
+}
+
+.label-notes {
+    display: flex;
+    align-items: flex-start;
+}
+
+.notes {
+    resize: none;
+    width: 30vw;
+    height: 9vh;
+    border-radius: 3px;
+    border: 1px solid rgb(163, 163, 163);
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-container button {
+    border: 1px solid rgb(163, 163, 163);
+    border-radius: 3px;
+    height: 2em;
+    width: 10vw;
+}

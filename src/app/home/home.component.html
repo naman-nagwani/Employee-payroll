@@ -1,0 +1,42 @@
+<div class="main-container">
+    <div class="text-employee-details">
+        Employee Details
+    </div>
+    <div class="button-container">
+        <div>
+            <button class="search">
+                <img src=".\assets\icons\search.png" alt="">
+            </button>
+        </div>
+
+        <div>
+            <button class="add-user-button"><a href="/add-employee">Add User</a></button>
+        </div>
+    </div>    
+</div>
+
+<table>
+    <tr class="table-header">
+        <th>Id</th>
+        <th>Profile Picture</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Start Date</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let employee of employees">
+        <td>{{employee.employeeId}}</td>
+        <td><img src={{employee.profilePic}}></td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.gender}}</td>
+        <td>{{employee.departments}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.startDate}}</td>
+        <td>
+            <button><img src=".\assets\icons\create-black-18dp.svg" alt="edit"></button>
+            <button><img src=".\assets\icons\delete-black-18dp.svg" alt="edit"></button>
+        </td>
+    </tr>
+</table>
