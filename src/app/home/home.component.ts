@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeClass } from '../model/employee-class.model';
 import { EmployeeServiceService } from '../service/employee-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
 employees : any;
 
   constructor(
-    private service:EmployeeServiceService
+    private service:EmployeeServiceService,
+    private router:Router
     ){ }
 
   ngOnInit(): void {
@@ -22,5 +23,16 @@ employees : any;
       this.employees = Object(data)["data"];
     });
   }
+
+  remove(employeeId: Number) :void {
+    this.service.deleteEmployee(employeeId).subscribe(data =>{
+      console.log(data);
+    });
+    this.ngOnInit();
+  } 
+
+  edit(employeeId: Number) :void {
+    this.router.navigate(["/update",employeeId])
+  } 
 
 }

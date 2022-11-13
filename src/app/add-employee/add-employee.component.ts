@@ -14,6 +14,10 @@ export class AddEmployeeComponent implements OnInit {
   // constructor() { }
 
   ngOnInit(): void {
+    if (this.employeeId!=null) {
+      this.service.getEmployeeById(this.employeeId).subscribe(data =>
+        this.employee = Object(data)["data"]);
+    }
   }
 
   constructor(
@@ -23,9 +27,9 @@ export class AddEmployeeComponent implements OnInit {
     ){ }
 
   deptName: any;  
-tempArr : Array<any> = [];
-depart2: any = ["HR", "Sales", "Engineer", "Finance", "Other"];
-checkBoxChange(dptname:any){
+  tempArr : Array<any> = [];
+  depart2: any = ["HR", "Sales", "Engineer", "Finance", "Other"];
+  checkBoxChange(dptname:any){
 
     if(!this.tempArr.includes(dptname)){
       this.tempArr.push(dptname);
@@ -39,11 +43,20 @@ checkBoxChange(dptname:any){
   }
 
   employee = new EmployeeClass("",0,"",new Date,"","",[]);
+  employeeId : any = this.route.snapshot.paramMap.get("id");
 
   onSubmit():void {
     this.employee.departments=this.tempArr;
     console.log(this.employee);
     this.service.insertEmployee(this.employee).subscribe((data:any) => {
+      this.router.navigate(["/"])
+    })
+  }
+
+  update():void {
+    this.employee.departments=this.tempArr;
+    console.log(this.employee);
+    this.service.updateEmployee(this.employeeId,this.employee).subscribe((data:any) => {
       this.router.navigate(["/"])
     })
   }

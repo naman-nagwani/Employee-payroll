@@ -35,8 +35,8 @@
         <td>{{employee.salary}}</td>
         <td>{{employee.startDate}}</td>
         <td>
-            <button><img src=".\assets\icons\create-black-18dp.svg" alt="edit"></button>
-            <button><img src=".\assets\icons\delete-black-18dp.svg" alt="edit"></button>
+            <button class="action-button" (click)="edit(employee.employeeId)"><img src=".\assets\icons\create-black-18dp.svg" alt="edit"></button>
+            <button class="action-button" (click)="remove(employee.employeeId)"><img src=".\assets\icons\delete-black-18dp.svg" alt="edit"></button>
         </td>
     </tr>
 </table>

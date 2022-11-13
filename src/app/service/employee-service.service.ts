@@ -17,4 +17,16 @@ export class EmployeeServiceService {
     return this.httpClient.get("http://localhost:8080/employeepayrollservice/get");
   }
 
+  deleteEmployee(employeeId: Number) {
+    return this.httpClient.delete("http://localhost:8080/employeepayrollservice/delete/"+ employeeId);
+  }
+
+  updateEmployee(employeeId: Number, employee: any) {
+    return this.httpClient.put("http://localhost:8080/employeepayrollservice/update/"+ employeeId,employee)
+  }
+
+  getEmployeeById(employeeId: Number) {
+    return this.httpClient.get("http://localhost:8080/employeepayrollservice/get/"+ employeeId);
+  }
+
 }

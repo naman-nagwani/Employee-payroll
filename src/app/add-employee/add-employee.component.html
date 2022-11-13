@@ -22,19 +22,19 @@
                         </div>
                         <div class="multiple-choices">
                             <div class="profile-choice-item">
-                                <input type="radio" name="profile-choice" value="Ellipse-1" [(ngModel)]="employee.profilePic" />
+                                <input type="radio" name="profile-choice" value="./assets/profile-images/Ellipse -1.png" [(ngModel)]="employee.profilePic" />
                                 <img src="./assets/profile-images/Ellipse -1.png">
                             </div>
                             <div class="profile-choice-item">
-                                <input type="radio" name="profile-choice" value="Ellipse-2" [(ngModel)]="employee.profilePic"/>
+                                <input type="radio" name="profile-choice" value="./assets/profile-images/Ellipse -2.png" [(ngModel)]="employee.profilePic"/>
                                 <img src="./assets/profile-images/Ellipse -2.png">
                             </div>
                             <div class="profile-choice-item">
-                                <input type="radio" name="profile-choice" value="Ellipse-3" [(ngModel)]="employee.profilePic"/>
+                                <input type="radio" name="profile-choice" value="./assets/profile-images/Ellipse -3.png" [(ngModel)]="employee.profilePic"/>
                                 <img src="./assets/profile-images/Ellipse -3.png">
                             </div>
                             <div class="profile-choice-item">
-                                <input type="radio" name="profile-choice" value="Ellipse-4" [(ngModel)]="employee.profilePic"/>
+                                <input type="radio" name="profile-choice" value="./assets/profile-images/Ellipse -4.png" [(ngModel)]="employee.profilePic"/>
                                 <img src="./assets/profile-images/Ellipse -4.png">
                             </div>
                         </div>
@@ -89,7 +89,8 @@
                 <div class="button-container">
                     <button onclick='clearForm()'>Cancel</button>
                     <div class="form-button-right">
-                        <button type="submit" form="form">Submit</button>
+                        <button type="submit" form="form" *ngIf="this.employeeId==null;else update_button" >Submit</button>
+                        <ng-template #update_button><button type="button" form="form" (click)="update()" >Update</button></ng-template>
                         <button type="reset" form="form">Reset</button> 
                     </div>
                 </div>

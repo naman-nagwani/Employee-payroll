@@ -56,3 +56,9 @@
   td {
     text-align: center;
   }
+
+  .action-button {
+    width: 50%;
+    background: none;
+    border: none;
+  }
